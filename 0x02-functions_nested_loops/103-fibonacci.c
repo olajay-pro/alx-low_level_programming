@@ -21,7 +21,7 @@ int main(void)
 		a = b;
 		b = sum;
 		if ((sum <= 4000000) && (sum % 2 == 0))
-			sum_of_evens += sum;
+			sumofevens += sum;
 	}
 	printf("%d\n", sumofevens);
 
