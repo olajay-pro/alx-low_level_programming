@@ -1,27 +1,35 @@
 #include "holberton.h"
 
-#include <stdio.h>
-
 /**
- * main - print largest prime factor of 612852475143
- * Return: 0 on success
- */
-
-int main(void)
+* print_number - prints # using _putchar function
+* @n: the integer to print
+*
+* Return: void
+*/
+void print_number(int n)
 {
-	unsigned long num = 612852475143;
-	unsigned long divisor = 2;
+	int copy, nth, size = 1, ones = n % 10;
 
-	while (divisor < num)
+	n /= 10;
+	copy = n;
+	if (ones < 0)
 	{
-		if (num % divisor == 0)
-		{
-			num /= divisor;
-			divisor = 2;
-		}
-		else
-			divisor++;
+		ones *= -1, copy *= -1, n *= -1;
+		_putchar('-');
 	}
-	printf("%lu\n", num);
-	return (0);
+	if (copy > 0)
+	{
+		while (copy / 10 != 0)
+		{
+			copy /= 10, size *= 10;
+		}
+		while (size > 0)
+		{
+			nth = n / size;
+			_putchar('0' + nth);
+			n -= nth * size;
+			size /= 10;
+		}
+	}
+	_putchar('0' + ones);
 }
