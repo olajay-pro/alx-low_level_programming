@@ -1,0 +1,1 @@
+__This files is mandatory for all directory__
