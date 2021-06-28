@@ -6,9 +6,10 @@
 
 int main()
 {
-    srand((unsigned int)(time(NULL)));
+
     int i;
     char pass[12];
+    srand((unsigned int)(time(NULL)));
 
     printf("Press enter to get a twelve-character password\n");
     getchar();
@@ -22,4 +23,6 @@ int main()
         printf("%d%c%c", pass[i], pass[i + 2], pass[i + 3]);
     }
     printf("\n\n");
+    
+    return (0);
 }
