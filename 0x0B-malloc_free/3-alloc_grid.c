@@ -3,21 +3,38 @@
 #include "holberton.h"
 
 /**
- * free_grid - frees a 2 dimensional grid
- * previously created by your alloc_grid function
- * @grid: pointer to 2D array
- * @height: height of array
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers
+ * @width: columns
+ * @height: rows
+ * Return: pointer to 2d array
  */
 
-void free_grid(int **grid, int height)
+int **alloc_grid(int width, int height)
 {
-	int i;
+	int **grid;
+	int i, j;
 
-	if (grid == NULL)
-		free(grid);
+	if (width <= 0 || height <= 0) /* validate input */
+		return (NULL);
 
-	for (i = 0; i < height; i++)
-		free(grid[i]);
+	grid = malloc(height * sizeof(int *)); /*allocate memory for rows*/
 
-	free(grid);
+	if (grid == NULL) /* validate memory */
+		return (NULL);
+
+	for (i = 0; i < height; i++) /*allocate memory for columns of each row*/
+	{
+		grid[i] = malloc(width * sizeof(int));
+		if (grid[i] == NULL) /* validate memory */
+		{
+			for (i = 0; i < height; i++)
+				free(grid[i]);
+			free(grid);
+			return (NULL);
+		}
+		for (j = 0; j < width; j++) /* set array values to 0 */
+			grid[i][j] = 0;
+	}
+
+	return (grid);
 }
