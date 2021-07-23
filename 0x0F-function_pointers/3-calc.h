@@ -1,0 +1,2 @@
+#ifndef PROTOTYPES
+#define PROTOTYPES
