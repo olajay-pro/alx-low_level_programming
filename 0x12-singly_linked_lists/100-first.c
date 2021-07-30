@@ -5,7 +5,7 @@
  *Note: made possible by prior declaration of "__attribute__ ((construcor))"
  */
 
-void __attribute__ ((constructor)) execute_before_main()
+void __attribute__((constructor)) execute_before_main()
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("Ï bore my house upon my back!\n");
