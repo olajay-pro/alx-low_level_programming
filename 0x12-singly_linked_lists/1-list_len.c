@@ -1,6 +1,4 @@
 #include "list.h"
-#include <stddef.h>
-#include <stdlib.h>
 
 /**
  *list_len - prints length of list_t
